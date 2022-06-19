@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+      name: myreplica
+spec: 
+   replicas: 4
+   selector:
+         myname: iimohii
+   template:
+        metadata:
+             name: testpod
+             labels:
+                  myname: iimohii
+        spec:
+           containers:
+           - name: coo3
+             image: ubuntu
+             command: ["/bin/bash" , "-c", "while true; do echo hello world ; sleep 5; done"]
+
+
